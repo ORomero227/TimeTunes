@@ -1,9 +1,28 @@
+import { use, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        className="rounded-full text-slate-600 hover:text-slate-800 hover:bg-slate-100"
+      >
+        <span className="size-5"></span>
+      </Button>
+    );
+  }
+
   return (
     <Button
       variant="ghost"

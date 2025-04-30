@@ -1,9 +1,9 @@
-import Image from "next/image";
+import HeroSection from "@/components/hero/HeroSection";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className="container mx-auto px-4 py-8 sm:px-6 md:px-8 lg:px-24">
+      <HeroSection />
     </div>
   );
 }
