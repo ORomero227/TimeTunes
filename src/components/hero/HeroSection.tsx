@@ -1,5 +1,5 @@
 import HeroInfo from "@/components/hero/HeroInfo";
-import { VinylRecord } from "./VinylRecord";
+import { VinylRecord } from "@/components/hero/VinylRecord";
 
 export default function HeroSection() {
   return (

@@ -7,14 +7,14 @@ import ThemeToggle from "@/components/ui/theme-toggle";
 export default function Header() {
   return (
     <header className="relative w-full overflow-hidden">
-      <div className="relative z-40 border-b border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md">
+      <div className="relative z-40 border-b border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-black/70 backdrop-blur-md">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-24">
           <div className="flex items-center gap-2">
             <div className="hidden relative sm:flex items-center">
-              <div className="absolute -inset-1 rounded-full blur-sm bg-slate-200/80 dark:bg-slate-700/50"></div>
-              <BookHeadphones className="relative size-8 text-slate-700 dark:text-slate-300" />
+              <div className="absolute -inset-1 rounded-full blur-sm bg-slate-200/80 dark:bg-gray-700/50"></div>
+              <BookHeadphones className="relative size-8 text-slate-700 dark:text-white" />
             </div>
-            <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100 sm:text-2xl">
+            <h1 className="text-xl font-bold text-slate-800 dark:text-white sm:text-2xl">
               TimeTunes
             </h1>
           </div>

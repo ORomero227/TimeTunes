@@ -1,5 +1,5 @@
 import { Song } from "@/types/song";
-import SongCard from "./songs/SongCard";
+import SongCard from "@/components/songs/SongCard";
 
 const billboardSongs: Song[] = [
   {

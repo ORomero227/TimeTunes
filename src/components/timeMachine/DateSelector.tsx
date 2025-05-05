@@ -25,11 +25,11 @@ export default function DateSelector() {
   return (
     <>
       <div className="text-left mb-4">
-        <span className="text-sm font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
+        <span className="text-sm font-medium text-slate-700 dark:text-gray-300 flex items-center gap-2">
           <Clock className="size-4 text-emerald-500 dark:text-emerald-400" />
           Transport to any date
         </span>
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+        <p className="text-xs text-slate-500 dark:text-gray-400 mt-1">
           Choose a date to discover the music that was popular at that time.
         </p>
       </div>
@@ -43,7 +43,7 @@ export default function DateSelector() {
             onChange={handleChange}
             max={today}
             min={"1900-01-01"}
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 text-slate-800 dark:text-slate-200 focus:border-emerald-500 dark:focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-500 dark:focus:ring-emerald-600"
+            className="w-full rounded-lg border border-slate-200 dark:border-gray-800 bg-white dark:bg-[#0a0a0a] px-4 py-3 text-slate-800 dark:text-white focus:border-emerald-500 dark:focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-500 dark:focus:ring-emerald-600"
           />
         </div>
 
