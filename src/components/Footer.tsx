@@ -2,7 +2,7 @@ import { BookHeadphones } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 dark:border-gray-800 py-8 sm:py-10 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
+    <footer className="border-t border-slate-200 dark:border-gray-800 py-8 sm:py-10">
       <div className="container mx-auto px-4 lg:px-24">
         <div className="flex flex-col items-center justify-between gap-4 sm:gap-6 md:flex-row">
           <div className="flex items-center gap-2">

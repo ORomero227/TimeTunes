@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Footer from "@/components/Footer";
+import { Background } from "@/components/Background";
 
 export const metadata: Metadata = {
   title: "TimeTunes",
@@ -24,6 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Background />
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">{children}</main>

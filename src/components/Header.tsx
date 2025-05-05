@@ -7,7 +7,7 @@ import ThemeToggle from "@/components/ui/theme-toggle";
 export default function Header() {
   return (
     <header className="relative w-full overflow-hidden">
-      <div className="relative z-40 border-b border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-black/70 backdrop-blur-md">
+      <div className="relative z-40 border-b backdrop-blur-md">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-24">
           <div className="flex items-center gap-2">
             <div className="hidden relative sm:flex items-center">
