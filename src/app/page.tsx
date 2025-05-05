@@ -1,4 +1,5 @@
 import HeroSection from "@/components/hero/HeroSection";
+import HowItWorks from "@/components/HowItWorks";
 import SongsSection from "@/components/SongsSection";
 import TimeMachine from "@/components/TimeMachine";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <TimeMachine />
       <SongsSection />
+      <HowItWorks />
     </div>
   );
 }
