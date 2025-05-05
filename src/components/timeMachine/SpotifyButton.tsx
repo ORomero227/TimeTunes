@@ -3,22 +3,6 @@ import { ArrowRight } from "lucide-react";
 export default function SpotifyButton() {
   return (
     <button className="group relative w-full overflow-hidden rounded-xl bg-black text-white p-1 transition-all hover:shadow-lg hover:shadow-slate-300/20 dark:hover:shadow-black/40 cursor-pointer">
-      {/* Fondo con ondas de audio */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute bottom-0 left-0 right-0 h-16 flex items-end justify-around">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="bg-white w-1 rounded-t-full animate-pulse"
-              style={{
-                height: `${Math.random() * 100}%`,
-                animationDuration: `${0.8 + Math.random() * 1.2}s`,
-              }}
-            ></div>
-          ))}
-        </div>
-      </div>
-
       {/* Contenido del botón */}
       <div className="relative flex items-center justify-between bg-black rounded-lg px-5 py-4">
         <div className="flex items-center gap-3">

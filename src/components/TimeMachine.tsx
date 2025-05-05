@@ -1,7 +1,20 @@
+"use client";
 import SpotifyButton from "@/components/timeMachine/SpotifyButton";
 import DateSelector from "@/components/timeMachine/DateSelector";
+import { Dispatch, SetStateAction } from "react";
+import { Song } from "@/types/song";
 
-export default function TimeMachine() {
+type TimeMachineProps = {
+  setSongs: Dispatch<SetStateAction<Song[] | undefined>>;
+};
+
+export default function TimeMachine({ setSongs }: TimeMachineProps) {
+  const fetchBillboardSongs = async (date: string) => {
+    const response = await fetch(`/api/billboard?date=${date}`);
+    const data = await response.json();
+    setSongs(data);
+  };
+
   return (
     <section className="mb-16 sm:mb-24" id="time-machine">
       <div className="container max-w-4xl mx-auto">
@@ -25,7 +38,7 @@ export default function TimeMachine() {
             </div>
             {/* Right Column */}
             <div className="mb-4">
-              <DateSelector />
+              <DateSelector onDateSubmit={fetchBillboardSongs} />
             </div>
           </div>
         </div>

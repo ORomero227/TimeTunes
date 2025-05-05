@@ -1,4 +1,5 @@
 import { Song } from "@/types/song";
+import { Music } from "lucide-react";
 
 type SongCardProps = {
   song: Song;
@@ -15,13 +16,15 @@ export default function SongCard({ song }: SongCardProps) {
       </div>
 
       {/* Imagen */}
-      <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-md overflow-hidden ml-2 sm:ml-3">
-        <img
-          src={song.image || "/placeholder.svg"}
-          alt={`${song.title} by ${song.artist}`}
-          className="h-full w-full object-cover"
-        />
-      </div>
+      {song.image && (
+        <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-md overflow-hidden ml-2 sm:ml-3">
+          <img
+            src={song.image}
+            alt={`${song.title} by ${song.artist}`}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      )}
 
       {/* Información de la canción */}
       <div className="ml-3 sm:ml-4 flex-1 min-w-0">

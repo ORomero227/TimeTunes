@@ -3,7 +3,11 @@ import { Clock, AudioWaveform } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-export default function DateSelector() {
+type TimeMachineProps = {
+  onDateSubmit: (date: string) => void;
+};
+
+export default function DateSelector({ onDateSubmit }: TimeMachineProps) {
   const [formData, setFormData] = useState({ date: "" });
   const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
 
@@ -16,7 +20,8 @@ export default function DateSelector() {
     e.preventDefault();
     const { date } = formData;
     if (date) {
-      console.log("Selected date:", date);
+      onDateSubmit(date);
+      setFormData({ date: "" });
     }
 
     setFormData({ date: "" });

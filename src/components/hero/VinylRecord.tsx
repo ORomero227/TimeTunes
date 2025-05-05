@@ -1,6 +1,14 @@
 import { Headphones } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function VinylRecord() {
+  const [barHeight, setBarHeight] = useState<number[]>([]);
+
+  useEffect(() => {
+    const randomHeights = Array.from({ length: 20 }, () => Math.random());
+    setBarHeight(randomHeights);
+  }, []);
+
   return (
     <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-square">
       {/* Círculos decorativos */}
@@ -31,12 +39,12 @@ export function VinylRecord() {
 
       {/* Ondas de sonido */}
       <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[90%] h-16 flex items-end justify-around">
-        {[...Array(20)].map((_, i) => (
+        {barHeight.map((val, i) => (
           <div
             key={i}
             className="bg-emerald-400 dark:bg-emerald-500 w-1.5 rounded-t-full animate-pulse"
             style={{
-              height: `${Math.random() * 100}%`,
+              height: `${val * 100}%`,
               animationDuration: `${0.8 + Math.random() * 1.2}s`,
             }}
           ></div>
