@@ -1,6 +1,7 @@
 import { Calendar, ListMusic, Music, Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import StepCard from "./howWorks/StepCard";
+import StepCard from "@/components/howWorks/StepCard";
+import Link from "next/link";
 
 const steps = [
   {
@@ -27,7 +28,10 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="my-24 sm:mb-20 rounded-lg border border-slate-50 dark:border-none">
+    <section
+      className="my-24 sm:mb-20 rounded-lg border border-slate-50 dark:border-none"
+      id="how-it-works"
+    >
       <div className="relative p-6 sm:p-10 md:p-12 flex flex-col items-center">
         <div className="mx-auto max-w-2xl">
           <div className="text-center mb-10">
@@ -57,7 +61,7 @@ export default function HowItWorks() {
 
           <div className="text-center">
             <Button className="bg-emerald-500 hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-700 border-0 shadow-md shadow-emerald-200/50 dark:shadow-emerald-900/30 hover:shadow-lg hover:shadow-emerald-200/60 dark:hover:shadow-emerald-900/40 transition-all text-white">
-              Get Started
+              <Link href="#time-machine">Get Started</Link>
             </Button>
           </div>
         </div>

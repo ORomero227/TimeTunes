@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HeroInfo() {
   return (
@@ -20,13 +21,13 @@ export default function HeroInfo() {
       </p>
       <div className="flex flex-wrap gap-4">
         <Button className="bg-emerald-500 hover:bg-emerald-600 text-white border-0 shadow-md shadow-emerald-200/50 dark:shadow-emerald-900/30 hover:shadow-lg hover:shadow-emerald-200/60 dark:hover:shadow-emerald-900/40 transition-all">
-          Get Started
+          <Link href="#time-machine">Get Started</Link>
         </Button>
         <Button
           variant="outline"
           className="border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
         >
-          Learn More
+          <Link href="#how-it-works">Learn More</Link>
         </Button>
       </div>
     </div>

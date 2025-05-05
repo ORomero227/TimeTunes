@@ -3,7 +3,7 @@ import DateSelector from "@/components/timeMachine/DateSelector";
 
 export default function TimeMachine() {
   return (
-    <section className="mb-16 sm:mb-24">
+    <section className="mb-16 sm:mb-24" id="time-machine">
       <div className="container max-w-4xl mx-auto">
         <div className="p-8 sm:p-10 rounded-3xl bg-white/60 dark:bg-[#111111] backdrop-blur-md shadow-xl border border-white/80 dark:border-gray-800/50">
           {/* Columans */}
