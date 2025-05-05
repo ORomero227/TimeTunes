@@ -1,5 +1,4 @@
 import { Song } from "@/types/song";
-import { Music } from "lucide-react";
 
 type SongCardProps = {
   song: Song;
@@ -31,7 +30,7 @@ export default function SongCard({ song }: SongCardProps) {
         <h3 className="font-medium text-slate-800 dark:text-white text-base truncate">
           {song.title}
         </h3>
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-gray-400 truncate">
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-gray-400 truncate wrap-break-word">
           {song.artist}
         </p>
       </div>

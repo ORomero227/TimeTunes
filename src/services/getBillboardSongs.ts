@@ -9,16 +9,22 @@ export const getBillboardSongs = async (date: string): Promise<Song[]> => {
   const $ = cheerio.load(html);
   const songs: Song[] = [];
 
-  $("li.o-chart-results-list__item").each((index, element) => {
+  $("ul.o-chart-results-list-row").each((index, element) => {
     const title = $(element).find("h3.c-title").text().trim();
-    const artist = $(element).find("span.c-label").first().text().trim();
-    const image = $(element).find("img").attr("src") || undefined;
+    const artist = $(element)
+      .find("span.c-label.a-no-trucate")
+      .first()
+      .text()
+      .trim();
+    const image =
+      $(element).find("img.c-lazy-image__img").attr("src") || undefined;
 
     if (title && artist) {
       songs.push({
         title,
         artist,
         image,
+        position: index + 1,
       });
     }
   });
