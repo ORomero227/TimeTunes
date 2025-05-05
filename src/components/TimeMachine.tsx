@@ -6,13 +6,19 @@ import { Song } from "@/types/song";
 
 type TimeMachineProps = {
   setSongs: Dispatch<SetStateAction<Song[] | undefined>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function TimeMachine({ setSongs }: TimeMachineProps) {
+export default function TimeMachine({
+  setSongs,
+  setLoading,
+}: TimeMachineProps) {
   const fetchBillboardSongs = async (date: string) => {
+    setLoading(true);
     const response = await fetch(`/api/billboard?date=${date}`);
     const data = await response.json();
     setSongs(data);
+    setLoading(false);
   };
 
   return (

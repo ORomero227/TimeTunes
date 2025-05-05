@@ -1,12 +1,18 @@
 import { Song } from "@/types/song";
 import SongCard from "@/components/songs/SongCard";
 import { Sparkles } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
+import EmptyBox from "@/components/songs/EmptyBox";
 
 type SongsSectionProps = {
   billboardSongs: Song[] | undefined;
+  loading?: boolean;
 };
 
-export default function SongsSection({ billboardSongs }: SongsSectionProps) {
+export default function SongsSection({
+  billboardSongs,
+  loading,
+}: SongsSectionProps) {
   const noSongs = billboardSongs?.length === 0 || !billboardSongs;
 
   return (
@@ -18,8 +24,12 @@ export default function SongsSection({ billboardSongs }: SongsSectionProps) {
       </div>
 
       {/* Cuadrícula de canciones */}
-      {noSongs ? (
-        <div className="text-center py-10 px-4 border border-dashed border-gray-300 dark:border-gray-700 rounded-xl bg-white/60 dark:bg-[#111111]">
+      {loading ? (
+        <EmptyBox>
+          <Spinner />
+        </EmptyBox>
+      ) : noSongs ? (
+        <EmptyBox>
           <Sparkles className="mx-auto mb-4 size-10 text-emerald-500 dark:text-emerald-400 animate-pulse" />
           <p className="text-lg font-semibold text-gray-700 dark:text-white mb-2">
             Start your time travel!
@@ -28,7 +38,7 @@ export default function SongsSection({ billboardSongs }: SongsSectionProps) {
             Select a date to discover the Billboard Top 100 hits of that time.
             🎶
           </p>
-        </div>
+        </EmptyBox>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
           {billboardSongs.map((song, index) => (
