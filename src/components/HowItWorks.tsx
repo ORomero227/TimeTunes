@@ -29,7 +29,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section
-      className="my-24 sm:mb-20 rounded-lg border border-slate-50 dark:border-none"
+      className="my-14 sm:mb-20 rounded-lg border border-slate-50 dark:border-none"
       id="how-it-works"
     >
       <div className="relative p-6 sm:p-10 md:p-12 flex flex-col items-center">

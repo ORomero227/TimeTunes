@@ -40,10 +40,12 @@ export default function SongsSection({
           </p>
         </EmptyBox>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
-          {billboardSongs.map((song, index) => (
-            <SongCard key={index} song={song} />
-          ))}
+        <div className="max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700 scrollbar-track-gray-100 dark:scrollbar-track-gray-800">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
+            {billboardSongs.map((song, index) => (
+              <SongCard key={index} song={song} />
+            ))}
+          </div>
         </div>
       )}
     </section>

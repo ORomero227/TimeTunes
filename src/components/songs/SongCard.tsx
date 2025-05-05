@@ -21,6 +21,9 @@ export default function SongCard({ song }: SongCardProps) {
             src={song.image}
             alt={`${song.title} by ${song.artist}`}
             className="h-full w-full object-cover"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
           />
         </div>
       )}
