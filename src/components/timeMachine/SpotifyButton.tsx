@@ -1,8 +1,27 @@
+"use client";
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 export default function SpotifyButton() {
+  const [displayName, setDisplayName] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/me")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.isAuth) {
+          setDisplayName(data.displayName);
+        }
+      });
+  }, []);
+
   return (
-    <button className="group relative w-full overflow-hidden rounded-xl bg-black text-white p-1 transition-all hover:shadow-lg hover:shadow-slate-300/20 dark:hover:shadow-black/40 cursor-pointer">
+    <button
+      className="group relative w-full overflow-hidden rounded-xl bg-black text-white p-1 transition-all hover:shadow-lg hover:shadow-slate-300/20 dark:hover:shadow-black/40 cursor-pointer"
+      onClick={() => {
+        window.location.href = "/api/login";
+      }}
+    >
       {/* Contenido del botón */}
       <div className="relative flex items-center justify-between bg-black rounded-lg px-5 py-4">
         <div className="flex items-center gap-3">
@@ -17,8 +36,17 @@ export default function SpotifyButton() {
             </svg>
           </div>
           <div className="text-left">
-            <p className="text-sm text-gray-300">Connect with</p>
-            <p className="font-bold text-lg">Spotify</p>
+            {displayName ? (
+              <>
+                <p className="text-sm text-gray-300">Connected as</p>
+                <p className="font-bold text-lg">{displayName}</p>
+              </>
+            ) : (
+              <>
+                <p className="text-sm text-gray-300">Connect with</p>
+                <p className="font-bold text-lg">Spotify</p>
+              </>
+            )}
           </div>
         </div>
         <div className="bg-[#1DB954] rounded-full p-2 sm:p-3 transition-transform group-hover:translate-x-1">

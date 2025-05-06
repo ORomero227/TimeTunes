@@ -1,10 +1,24 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import { BookHeadphones, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ui/theme-toggle";
 
 export default function Header() {
+  const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const res = await fetch("/api/me");
+      const data = await res.json();
+      if (res.ok) {
+        setIsAuth(data.isAuth);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
   return (
     <header className="relative w-full overflow-hidden">
       <div className="relative z-40 border-b backdrop-blur-md">
@@ -20,10 +34,23 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button className="sm:inline-flex items-center gap-2 rounded-full bg-emerald-500 text-white border-0 shadow-md shadow-emerald-200/30 dark:shadow-emerald-900/30 hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-200/60 dark:hover:shadow-emerald-900/40 transition-all">
-              <Music className="size-4" />
-              <span>Connect</span>
-            </Button>
+            {isAuth ? (
+              <Button
+                onClick={() => (window.location.href = "/api/logout")}
+                className="sm:inline-flex items-center gap-2 rounded-full bg-emerald-500 text-white border-0 shadow-md shadow-emerald-200/30 dark:shadow-emerald-900/30 hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-200/60 dark:hover:shadow-emerald-900/40 transition-all"
+              >
+                <Music className="size-4" />
+                <span>Logout</span>
+              </Button>
+            ) : (
+              <Button
+                onClick={() => (window.location.href = "/api/login")}
+                className="sm:inline-flex items-center gap-2 rounded-full bg-emerald-500 text-white border-0 shadow-md shadow-emerald-200/30 dark:shadow-emerald-900/30 hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-200/60 dark:hover:shadow-emerald-900/40 transition-all"
+              >
+                <Music className="size-4" />
+                <span>Connect</span>
+              </Button>
+            )}
             <ThemeToggle />
           </div>
         </div>
