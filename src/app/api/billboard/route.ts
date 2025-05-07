@@ -21,6 +21,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json(songs, { status: 200 });
   } catch (error) {
+    console.error("Error fetching billboard songs:", error);
     return NextResponse.json(
       { error: "Failed to fetch billboard songs" },
       { status: 500 }

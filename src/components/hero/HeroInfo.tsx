@@ -15,9 +15,9 @@ export default function HeroInfo() {
       </h2>
       <p className="mb-8 sm:mb-10 w-full text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed text-center lg:text-left">
         Relive the soundtrack of any era with TimeTunes. Just pick a date, and
-        we'll generate a Spotify playlist using the Billboard hits from that
-        time instantly transporting you to the music that defined that moment in
-        history.
+        we&apos;ll generate a Spotify playlist using the Billboard hits from
+        that time instantly transporting you to the music that defined that
+        moment in history.
       </p>
       <div className="flex flex-wrap justify-center lg:justify-start gap-4">
         <Button className="bg-emerald-500 hover:bg-emerald-600 text-white border-0 shadow-md shadow-emerald-200/50 dark:shadow-emerald-900/30 hover:shadow-lg hover:shadow-emerald-200/60 dark:hover:shadow-emerald-900/40 transition-all">

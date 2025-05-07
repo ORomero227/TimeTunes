@@ -17,6 +17,7 @@ export default function SongCard({ song }: SongCardProps) {
       {/* Imagen */}
       {song.image && (
         <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 rounded-md overflow-hidden ml-2 sm:ml-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={song.image}
             alt={`${song.title} by ${song.artist}`}
