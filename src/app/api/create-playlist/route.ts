@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { createSpotifyPlaylistWithBillboardSongs } from "@/services/spotifyService";
+import { createSpotifyPlaylistWithBillboardSongs } from "@/services/spotify/createPlaylistWithSongs";
 
 export async function POST(request: Request) {
   // Get access token from cookies
   const cookieStore = cookies();
-  const accessToken = (await cookieStore).get("spotyfy_token")?.value;
+  const accessToken = (await cookieStore).get("spotify_token")?.value;
 
   if (!accessToken) {
     return NextResponse.json(
@@ -20,7 +20,10 @@ export async function POST(request: Request) {
     const { playlistName, billboardSongs } = body;
 
     if (!playlistName) {
-      return NextResponse.json({ error: "Date is required." }, { status: 400 });
+      return NextResponse.json(
+        { error: "Playlistname is required." },
+        { status: 400 }
+      );
     }
 
     if (!billboardSongs) {

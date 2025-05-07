@@ -3,6 +3,7 @@ import SongCard from "@/components/songs/SongCard";
 import { Sparkles } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import EmptyBox from "@/components/songs/EmptyBox";
+import CreatePLaylist from "./playlist/CreatePLaylist";
 
 type SongsSectionProps = {
   billboardSongs: Song[] | undefined;
@@ -48,6 +49,8 @@ export default function SongsSection({
           </div>
         </div>
       )}
+
+      <CreatePLaylist billboardSongs={billboardSongs} />
     </section>
   );
 }
