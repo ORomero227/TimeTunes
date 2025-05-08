@@ -45,7 +45,7 @@ TimeTunes is a web application that allows you to rediscover music from specific
    ```
    SPOTIFY_CLIENT_ID=your_spotify_client_id
    SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
-   SPOTIFY_REDIRECT_URI=http://localhost:3000
+   SPOTIFY_REDIRECT_URI=http:your_random_secret
    NEXT_PUBLIC_BASE_URL=your_random_secret
    ```
 
@@ -78,3 +78,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ---
 
 Built with ❤️ by Oscar Romero
+
+--- 
+#### Screenshots
+
+![time-tunes-01](https://github.com/user-attachments/assets/3e387295-21c9-40c4-9294-029e67a137e9)
+![time-tunes-02](https://github.com/user-attachments/assets/6b4df9f6-f80d-47a9-a475-fe499fe7ccd6)
+![time-tunes-03](https://github.com/user-attachments/assets/ea11c3bd-d5aa-4b5c-9441-514d93ed6f5d)
+![time-tunes-04](https://github.com/user-attachments/assets/c9765727-cf81-4cab-b65d-8cd64fb175ac)
