@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TimeTunes 🎵
 
-## Getting Started
+> Relive the soundtrack of any era with TimeTunes. Just pick a date, and we'll generate a Spotify playlist using the Billboard hits from that time, instantly transporting you to the music that defined that moment in history.
 
-First, run the development server:
+## 📖 About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+TimeTunes is a web application that allows you to rediscover music from specific moments in time. By selecting any date from the past, the app scrapes the Billboard Hot 100 chart for that date and compiles the songs into a playlist that you can view or save to your Spotify account.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Date Selection**: User-friendly calendar interface to choose any historical date
+- **Billboard Chart Scraping**: Automatic retrieval of the top 100 songs from the selected date
+- **Playlist Viewing**: Browse through the historical hits that were popular at that time
+- **Spotify Integration**: Connect your Spotify account to save playlists for later enjoyment
+- **Responsive Design**: Works seamlessly across desktop and mobile devices
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Demo
 
-## Learn More
+[Live Demo](https://time-tunes.vercel.app)
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend**: Next.js with TypeScript
+- **Web Scraping**: Cheerio
+- **Music Integration**: Spotify API
+- **Deployment**: Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Installation
 
-## Deploy on Vercel
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ORomero227/TimeTunes.git
+   cd TimeTunes
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory with the following variables:
+   ```
+   SPOTIFY_CLIENT_ID=your_spotify_client_id
+   SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+   SPOTIFY_REDIRECT_URI=http://localhost:3000
+   NEXT_PUBLIC_BASE_URL=your_random_secret
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## 🔍 How to Use
+
+1. **Select a Date**: Use the calendar to choose any date in music history
+2. **Explore the Charts**: View the Billboard Hot 100 songs from that date
+3. **Connect to Spotify**: Log in with your Spotify account (optional)
+4. **Save the Playlist**: Add the generated playlist to your Spotify library with one click
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+Built with ❤️ by Oscar Romero
