@@ -20,15 +20,19 @@ export default function CreateButton({
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const { playlistName } = formData;
-    if (playlistName.trim()) {
-      createListPlaylist(playlistName, billboardSongs || []);
-      setFormData({ playlistName: "" });
-    }
 
-    setFormData({ playlistName: "" });
+    if (playlistName.trim()) {
+      try {
+        createListPlaylist(playlistName, billboardSongs || []);
+      } catch (error) {
+        console.error("Error creating playlist:", error);
+      } finally {
+        setFormData({ playlistName: "" });
+      }
+    }
   }
 
   return (

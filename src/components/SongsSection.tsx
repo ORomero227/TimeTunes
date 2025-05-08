@@ -1,9 +1,12 @@
+"use client";
+
 import { Song } from "@/types/song";
 import SongCard from "@/components/songs/SongCard";
 import { Sparkles } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
 import EmptyBox from "@/components/songs/EmptyBox";
 import CreatePLaylist from "./playlist/CreatePLaylist";
+import { useState, useEffect } from "react";
 
 type SongsSectionProps = {
   billboardSongs: Song[] | undefined;
@@ -14,6 +17,20 @@ export default function SongsSection({
   billboardSongs,
   loading,
 }: SongsSectionProps) {
+  const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const res = await fetch("/api/me");
+      const data = await res.json();
+      if (res.ok) {
+        setIsAuth(data.isAuth);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
   const noSongs = billboardSongs?.length === 0 || !billboardSongs;
 
   return (
@@ -50,7 +67,9 @@ export default function SongsSection({
         </div>
       )}
 
-      <CreatePLaylist billboardSongs={billboardSongs} />
+      {isAuth && Array.isArray(billboardSongs) && billboardSongs.length > 0 && (
+        <CreatePLaylist billboardSongs={billboardSongs} />
+      )}
     </section>
   );
 }

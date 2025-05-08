@@ -1,5 +1,6 @@
 import { Song } from "@/types/song";
 import CreatePlaylistForm from "@/components/playlist/CreatePlaylistForm";
+import { createPlaylist } from "@/lib/playlist-api";
 
 type CreatePlaylistProps = {
   billboardSongs?: Song[];
@@ -8,26 +9,10 @@ type CreatePlaylistProps = {
 export default function CreatePLaylist({
   billboardSongs,
 }: CreatePlaylistProps) {
-  const handleCreatePlaylist = async (playlistName: string, songs: Song[]) => {
-    try {
-      const response = await fetch("/api/create-playlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          playlistName: playlistName,
-          billboardSongs: songs,
-        }),
-      });
+  async function handleCreatePlaylist(playlistName: string, songs: Song[]) {
+    await createPlaylist(playlistName, songs);
+  }
 
-      if (!response.ok) {
-        throw new Error("Failed to create playlist");
-      }
-    } catch (error) {
-      console.error("Error creating playlist:", error);
-    }
-  };
   return (
     <div className="mt-10 flex flex-col items-center justify-center">
       <div className="w-full max-w-md mx-auto">

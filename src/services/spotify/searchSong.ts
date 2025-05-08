@@ -55,8 +55,9 @@ export async function searchSpotifySong(
 
     if (titleSearchData.tracks.items.length > 0) {
       // Fixed: Added return statement in the callback function
-      const foundSong = titleSearchData.tracks.items.find((song: any) =>
-        song.name.toLowerCase().includes(cleanTitle.toLowerCase())
+      const foundSong = titleSearchData.tracks.items.find(
+        (song: { name: string }) =>
+          song.name.toLowerCase().includes(cleanTitle.toLowerCase())
       );
 
       if (foundSong) {
